@@ -14,10 +14,6 @@ jobs:
       - aws-cli/setup
       - eb/setup
       - run:
-          name: Hello World
-          command: |
-            echo "Hello World"
-      - run:
           name: Front-End Install
           command: |
             npm run frontend:install
