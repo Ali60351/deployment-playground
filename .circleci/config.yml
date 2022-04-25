@@ -8,32 +8,32 @@ jobs:
     docker:
       - image: "cimg/base:stable"
     steps:
-      - node/install:
+      - node/install: # Setup the required node version
         node-version: '14.19.1'
       - checkout
-      - aws-cli/setup
-      - eb/setup
+      - aws-cli/setup # Setup AWS CLI v2
+      - eb/setup # Setup EB CLI
       - run:
-          name: Front-End Install
+          name: Front-End Install # Install all the dependencies for the angular application
           command: |
             npm run frontend:install
       - run:
-          name: Back-End Install
+          name: Back-End Install # Install all the dependencies for the express application
           command: |
             npm run backend:install
       - run:
-          name: Front-End Build
+          name: Front-End Build # Compile a static site using the ng CLI
           command: |
             npm run frontend:build
       - run:
-          name: Back-End Build
+          name: Back-End Build # Compile the express application using the typeScript CLI
           command: |
             npm run backend:build
       - run:
-          name: Deploy Frontend
+          name: Deploy Frontend # Deploy the compiled static site to S3 Static Hosting bucket
           command: |
             npm run frontend:deploy
       - run:
-          name: Deploy Backend
+          name: Deploy Backend # Deploy the compiles express app to elastic beanstalk
           command: |
             npm run backend:deploy
