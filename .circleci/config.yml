@@ -14,23 +14,19 @@ jobs:
           name: Hello World
           command: |
             echo "Hello World"
-      # - run:
-      #     name: Front-End Install
-      #     command: |
-      #       npm run frontend:install
-      # - run:
-      #     name: Back-End Install
-      #     command: |
-      #       npm run backend:install
-      # - run:
-      #     name: Front-End Build
-      #     command: |
-      #       npm run frontend:build
-      # - run:
-      #     name: Back-End Build
-      #     command: |
-      #       npm run backend:build
-      # - run:
-      #     name: Deploy App
-      #     command: |
-      #       npm run frontend:deploy
+      - run:
+          name: Front-End Install
+          command: |
+            npm run frontend:install
+      - run:
+          name: Back-End Install
+          command: |
+            npm run backend:install
+      - run:
+          name: Deploy Frontend
+          command: |
+            npm run frontend:deploy
+      - run:
+          name: Deploy Backend
+          command: |
+            npm run backend:deploy
