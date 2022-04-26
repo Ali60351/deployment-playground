@@ -37,3 +37,12 @@ jobs:
           name: Deploy Backend # Deploy the compiles express app to elastic beanstalk
           command: |
             npm run backend:deploy
+
+workflows:
+  build-workflow:
+    jobs:
+      - build
+        filters:
+            branches:
+              only:
+                - master
